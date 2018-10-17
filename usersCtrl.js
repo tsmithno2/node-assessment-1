@@ -39,7 +39,7 @@ module.exports = {
             responce = userData.filter(user => user.favorites.includes(req.query.favorites));
             res.status(200).send(responce);
         } else {
-            res.status(200).send(userData)
+            res.status(200).send(userData);
         }
     }, 
     //success
@@ -53,14 +53,19 @@ module.exports = {
             const userRes = userData.filter(user => user.id === +req.params.userId);
             res.status(200).send(userRes[0]); 
         } else {
-           res.status(404).json(null) 
+           res.status(404).json(null);
         }
     },
     //success
 
     getAdmins: (req, res) => {
-        console.log("We got here to function getAdmins")
+        console.log("We got here to function getAdmins");
+        //First we set a variable equal to a filter of the userData array where each user has a "type" of "admin"
+        const admins = userData.filter(user => user.type === "admin");
+        //Then we send the admins as well as a status of 200
+        res.status(200).send(admins);
     },
+    //success
 
     getNonAdmins: (req, res) => {
         console.log("We got here to function getNonAdmins")

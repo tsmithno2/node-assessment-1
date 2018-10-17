@@ -33,6 +33,6 @@ const controller = require("./usersCtrl.js")
 
 
 //7 'POST' call to create a new user object. The id will not be included and will need to created sequentially from the alst id + 1. Respond with the entire user array AFTER the new user is created along with status 200  
-a
+
 
 //8 'DELETE' call to delete a specific user object from the array whose id wil be specified with the userId parameter. Respond witht he entire user array AFTER the specified user is deleted along with status 200

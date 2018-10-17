@@ -41,6 +41,7 @@ module.exports = {
     createNewUser: (req, res) => {
         console.log("We got here to function createNewUser")
     },
+    //success
 
     deleteUser: (req, res) => {
         console.log("We got here to function deleteUser")

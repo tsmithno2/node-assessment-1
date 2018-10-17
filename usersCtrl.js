@@ -7,6 +7,7 @@ module.exports = {
 
     //Going to put simple console.logs in each function to make sure we are at least hitting the endpoints. 
     //If all work, then we will move to writing the actual code needed to pass the postman endpoints
+    //Success is defined by the correct console.log apearing in the console
     getAllUsers: (req, res) => { 
         console.log("We got here to function getAllUsers")
     }, 

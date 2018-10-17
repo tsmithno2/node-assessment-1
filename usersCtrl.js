@@ -4,11 +4,13 @@ const userData = require("./userData.json");
 //When the endpoints are hit we will use these functions to perform the desired actions
 //The functions are all named in server.js. Copy and paste those names so there is no naming confusion here
 module.exports = {
+
     //Going to put simple console.logs in each function to make sure we are at least hitting the endpoints. 
     //If all work, then we will move to writing the actual code needed to pass the postman endpoints
     getAllUsers: (req, res) => { 
         console.log("We got here to function getAllUsers")
     }, 
+    //success
 
     getSpecUser: (req, res) => { 
         console.log("We got here to function getSpecUser")

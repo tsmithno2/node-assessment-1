@@ -94,14 +94,21 @@ module.exports = {
         res.status(200).send(typeArr);    
         } else {
             //Else return not found
-            res.status(404).send("Type Not Found :( Sorry my dude.")
+            res.status(404).send("Type Not Found :( Sorry my dude.");
         }
     },
     //success
 
     updateUser: (req, res) => {
-        console.log("We got here to function updateUser")
+        console.log("We got here to function updateUser ", userData[+req.params.userId])
+        //First splice the body of the request to the id of the params. 
+        //Alternatively, since the body will contain an "id" we dont actually need params
+        //Remember, the id is 1 higher than the index we need to modiy
+        userData.splice(+req.params.userId - 1, 1, req.body);
+        //Send userData back along with a status 200
+        res.status(200).send(userData)
     },
+    //success
 
     createNewUser: (req, res) => {
         console.log("We got here to function createNewUser")

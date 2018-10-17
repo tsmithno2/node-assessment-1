@@ -70,7 +70,7 @@ module.exports = {
     getNonAdmins: (req, res) => {
         console.log("We got here to function getNonAdmins")
         //First we set a variable equal to a filter
-        // however in the array there are 3 possibile types
+        //However in the array there are 3 possibile types
         //admin, moderator, user
         //we must get 2 of the three
         const normies = userData.filter(user => user.type === "moderator" || user.type === "user");

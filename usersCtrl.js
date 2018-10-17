@@ -7,8 +7,9 @@ module.exports = {
 
     //Going to put simple console.logs in each function to make sure we are at least hitting the endpoints. 
     //If all work, then we will move to writing the actual code needed to pass the postman endpoints
-   //REMINDER ALL QUERIES WILL BE STRINGS IN THE JSON DOCU8MENT THERE ARE INTEGERS WE MAY NEED TO CHANGE THE STRINGS TO INTEGERS
-    getAllUsers: (req, res) => {
+    //REMINDER ALL QUERIES WILL BE STRINGS IN THE JSON DOCU8MENT THERE ARE INTEGERS WE MAY NEED TO CHANGE THE STRINGS TO INTEGERS
+    
+   getAllUsers: (req, res) => {
         console.log("We got here to function getAllUsers");
         //We need to be ready to see if a query is used. 
         //The possibilities are,
@@ -27,11 +28,9 @@ module.exports = {
         if (req.query.age){
             let ageCheck = parseInt(req.query.age)
             responce = userData.filter(user => user.age < ageCheck);
-            console.log("Should be done with age", responce);
             res.status(200).send(responce);
         } else if (req.query.lastname){
             responce = userData.filter(user => user.last_name === req.query.lastname);
-            console.log("Should be done with last_name ", responce);
             res.status(200).send(responce);
         } else if (req.query.email){
             responce = userData.filter(user => user.email === req.query.email);
@@ -47,6 +46,7 @@ module.exports = {
 
     getSpecUser: (req, res) => { 
         console.log("We got here to function getSpecUser")
+
     },
 
     getAdmins: (req, res) => {

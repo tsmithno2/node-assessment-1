@@ -30,16 +30,20 @@ module.exports = {
             console.log("Should be done with age", responce);
             res.status(200).send(responce);
         } else if (req.query.lastname){
-            responce = userData.filter(user => user.last_name === req.query.lastname)
-            console.log("Should be done with last_name ", responce)
+            responce = userData.filter(user => user.last_name === req.query.lastname);
+            console.log("Should be done with last_name ", responce);
+            res.status(200).send(responce);
         } else if (req.query.email){
-            responce = userData.filter(user => user.email === req.query.email)
+            responce = userData.filter(user => user.email === req.query.email);
+            res.status(200).send(responce);
         } else if (req.query.favorites){
-            responce = userData.filter(user => user.favorites.includes(req.query.favorites))
+            responce = userData.filter(user => user.favorites.includes(req.query.favorites));
+            res.status(200).send(responce);
         } else {
-            res.status.status(200).send(userData)
+            res.status(200).send(userData)
         }
     }, 
+    //success
 
     getSpecUser: (req, res) => { 
         console.log("We got here to function getSpecUser")

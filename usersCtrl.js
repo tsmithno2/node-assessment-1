@@ -100,19 +100,26 @@ module.exports = {
     //success
 
     updateUser: (req, res) => {
-        console.log("We got here to function updateUser ", userData[+req.params.userId])
+        console.log("We got here to function updateUser ", userData[+req.params.userId]);
         //First splice the body of the request to the id of the params. 
         //Alternatively, since the body will contain an "id" we dont actually need params
         //Remember, the id is 1 higher than the index we need to modiy
         userData.splice(+req.params.userId - 1, 1, req.body);
         //Send userData back along with a status 200
-        res.status(200).send(userData)
+        res.status(200).send(userData);
     },
     //success
 
     createNewUser: (req, res) => {
-        console.log("We got here to function createNewUser")
+        console.log("We got here to function createNewUser");
+        //First since we are creating a new user, the id will not be prvided in req.body, we must assign it
+        req.body.id = userData.length + 1;
+        //Next splice it into the array
+        userData.splice(userData.length, 0, req.body);
+        //Finally send the array back with a status 200
+        res.status(200).send(userData);
     },
+    //success
 
     deleteUser: (req, res) => {
         console.log("We got here to function deleteUser")

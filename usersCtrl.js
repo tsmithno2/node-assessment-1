@@ -122,7 +122,12 @@ module.exports = {
     //success
 
     deleteUser: (req, res) => {
-        console.log("We got here to function deleteUser")
-    },
- 
+        console.log("We got here to function deleteUser");
+        //First we splice the user from the array
+        //Remember, the id is 1 higher than the index we need to modiy
+        userData.splice(+req.params.userId - 1, 1);
+        //Then send back the array with a staus code of 200
+        res.status(200).send(userData);
+    }
+    //success
 }

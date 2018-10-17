@@ -13,10 +13,7 @@ module.exports = {
         console.log("We got here to function getAllUsers");
         //We need to be ready to see if a query is used. 
         //The possibilities are,
-        //age. If used return all user objects with "age" property less than specified
-        //lastname. If used return all user objects whose "last_name" property match
-        //email. If used return all user objects whose "email" proptery match
-        //favorites. If used return all user objects that contain the query in their favorites array
+        //age, lastname, email, favorites
         //If no query, return the entire array
 
         //Set the responce variable to be an empty array and push all mnatches in. 
@@ -26,19 +23,28 @@ module.exports = {
         //Check conditions first, and if none are met send the userData array
         
         if (req.query.age){
+            //age. If used return all user objects with "age" property less than specified
             let ageCheck = +req.query.age
             responce = userData.filter(user => user.age < ageCheck);
             res.status(200).send(responce);
+
         } else if (req.query.lastname){
+            //lastname. If used return all user objects whose "last_name" property match
             responce = userData.filter(user => user.last_name === req.query.lastname);
             res.status(200).send(responce);
+
         } else if (req.query.email){
+            //email. If used return all user objects whose "email" proptery match
             responce = userData.filter(user => user.email === req.query.email);
             res.status(200).send(responce);
+
         } else if (req.query.favorites){
+            //favorites. If used return all user objects that contain the query in their favorites array
             responce = userData.filter(user => user.favorites.includes(req.query.favorites));
             res.status(200).send(responce);
+
         } else {
+
             res.status(200).send(userData);
         }
     }, 
@@ -68,20 +74,30 @@ module.exports = {
     //success
 
     getNonAdmins: (req, res) => {
-        console.log("We got here to function getNonAdmins")
+        console.log("We got here to function getNonAdmins");
         //First we set a variable equal to a filter
         //However in the array there are 3 possibile types
         //admin, moderator, user
         //we must get 2 of the three
         const normies = userData.filter(user => user.type === "moderator" || user.type === "user");
         //Then send over the normies as well as a status 200
-        res.status(200).send(normies)
+        res.status(200).send(normies);
     },
     //success
 
     getCertainType: (req, res) => {
-        console.log("We got here to function getCertainType")
+        console.log("We got here to function getCertainType");
+        //First check to see if the paramter is either amdin, moderator, or user
+        if (req.params.type === "admin" || req.params.type === "moderator" || req.params.type === "user"){
+        //If true, set a variable equal to a filter where the parameter is equal to req.params.type
+        const typeArr = userData.filter(user => user.type === req.params.type);
+        res.status(200).send(typeArr);    
+        } else {
+            //Else return not found
+            res.status(404).send("Type Not Found :( Sorry my dude.")
+        }
     },
+    //success
 
     updateUser: (req, res) => {
         console.log("We got here to function updateUser")

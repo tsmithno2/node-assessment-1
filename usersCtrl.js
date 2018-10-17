@@ -16,6 +16,7 @@ module.exports = {
     getSpecUser: (req, res) => { 
         console.log("We got here to function getSpecUser")
     },
+    //success
 
     getAdmins: (req, res) => {
         console.log("We got here to function getAdmins")

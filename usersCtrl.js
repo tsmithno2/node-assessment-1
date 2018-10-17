@@ -31,6 +31,7 @@ module.exports = {
     getCertainType: (req, res) => {
         console.log("We got here to function getCertainType")
     },
+    //success
 
     updateUser: (req, res) => {
         console.log("We got here to function updateUser")

@@ -69,7 +69,15 @@ module.exports = {
 
     getNonAdmins: (req, res) => {
         console.log("We got here to function getNonAdmins")
+        //First we set a variable equal to a filter
+        // however in the array there are 3 possibile types
+        //admin, moderator, user
+        //we must get 2 of the three
+        const normies = userData.filter(user => user.type === "moderator" || user.type === "user");
+        //Then send over the normies as well as a status 200
+        res.status(200).send(normies)
     },
+    //success
 
     getCertainType: (req, res) => {
         console.log("We got here to function getCertainType")

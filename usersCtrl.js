@@ -7,7 +7,7 @@ module.exports = {
 
     //Going to put simple console.logs in each function to make sure we are at least hitting the endpoints. 
     //If all work, then we will move to writing the actual code needed to pass the postman endpoints
-   
+   //REMINDER ALL QUERIES WILL BE STRINGS IN THE JSON DOCU8MENT THERE ARE INTEGERS WE MAY NEED TO CHANGE THE STRINGS TO INTEGERS
     getAllUsers: (req, res) => {
         console.log("We got here to function getAllUsers");
         //We need to be ready to see if a query is used. 
@@ -23,7 +23,7 @@ module.exports = {
         let responce = [];
 
         //Check conditions first, and if none are met send the userData array
-        //REMINDER ALL QUERIES WILL BE STRINGS IN THE JSON DOCU8MENT THERE ARE INTEGERS WE MAY NEED TO CHANGE THE STRINGS TO INTEGERS
+        
         if (req.query.age){
             let ageCheck = parseInt(req.query.age)
             responce = userData.filter(user => user.age < ageCheck);

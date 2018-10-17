@@ -26,7 +26,7 @@ module.exports = {
         //Check conditions first, and if none are met send the userData array
         
         if (req.query.age){
-            let ageCheck = parseInt(req.query.age)
+            let ageCheck = +req.query.age
             responce = userData.filter(user => user.age < ageCheck);
             res.status(200).send(responce);
         } else if (req.query.lastname){
@@ -45,9 +45,18 @@ module.exports = {
     //success
 
     getSpecUser: (req, res) => { 
-        console.log("We got here to function getSpecUser")
-
+        console.log("We got here to function getSpecUser ", req.params.userId);
+        //First check to see that the id provided actually exists in the array. 
+        //If not, return res.status(404).json(null)
+        if (+req.params.userId <= userData.length){
+            //Set up a variable to a filter where the id from req.params.userId is the condition
+            const userRes = userData.filter(user => user.id === +req.params.userId);
+            res.status(200).send(userRes[0]); 
+        } else {
+           res.status(404).json(null) 
+        }
     },
+    //success
 
     getAdmins: (req, res) => {
         console.log("We got here to function getAdmins")

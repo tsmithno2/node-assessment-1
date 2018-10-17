@@ -41,4 +41,4 @@ app.put("/api/users/:userId", controller.updateUser);
 app.post("/api/users", controller.createNewUser);
 
 //8 'DELETE' call to delete a specific user object from the array whose id wil be specified with the userId parameter. Respond witht he entire user array AFTER the specified user is deleted along with status 200
-app.delete("/api/users/:id", controller.deleteUser);
+app.delete("/api/users/:userId", controller.deleteUser);

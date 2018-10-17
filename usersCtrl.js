@@ -36,6 +36,7 @@ module.exports = {
     updateUser: (req, res) => {
         console.log("We got here to function updateUser")
     },
+    //success
 
     createNewUser: (req, res) => {
         console.log("We got here to function createNewUser")

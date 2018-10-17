@@ -21,6 +21,7 @@ module.exports = {
     getAdmins: (req, res) => {
         console.log("We got here to function getAdmins")
     },
+    //success
 
     getNonAdmins: (req, res) => {
         console.log("We got here to function getNonAdmins")
